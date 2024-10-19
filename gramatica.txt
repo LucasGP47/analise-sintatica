@@ -1,0 +1,22 @@
+<PROGRAMA> ::= programa id inicio_bloco <BLOCO> fim_bloco
+<BLOCO> ::= <COMANDO> <BLOCO> | <COMANDO>
+<COMANDO> ::= <DECLARACAO> | <ATRIBUICAO> | <LEITURA> | <IMPRESSAO> 
+            | <SELECAO> | <REPETICAO> | <FUNCAO_DECLARACAO> | <CHAMADA_FUNCAO> | <RETORNO>
+<DECLARACAO> ::= tipo id ponto_virgula
+<TIPO> ::= int | float | char | <ARRAY>
+<ARRAY> ::= tipo abre_colchetes num fecha_colchetes
+<ATRIBUICAO> ::= id igual <EXPRESSAO> ponto_virgula
+<LEITURA> ::= scanf abre_parenteses string fecha_parenteses ponto_virgula
+<IMPRESSAO> ::= printf abre_parenteses string fecha_parenteses ponto_virgula
+<SELECAO> ::= if abre_parenteses <EXPRESSAO> fecha_parenteses inicio_bloco <BLOCO> fim_bloco 
+            | if abre_parenteses <EXPRESSAO> fecha_parenteses inicio_bloco <BLOCO> fim_bloco else inicio_bloco <BLOCO> fim_bloco
+<REPETICAO> ::= while abre_parenteses <EXPRESSAO> fecha_parenteses inicio_bloco <BLOCO> fim_bloco
+              | for abre_parenteses <ATRIBUICAO> <EXPRESSAO> ponto_virgula <ATRIBUICAO> fecha_parenteses inicio_bloco <BLOCO> fim_bloco
+<EXPRESSAO> ::= <TERMO> <OPERADOR> <EXPRESSAO> | <TERMO>
+<TERMO> ::= id | numero | char
+<OPERADOR> ::= mais | menos | multiplicacao | divisao | igual_igual | diferente | maior | menor | maior_igual | menor_igual | e_logico | ou_logico
+<FUNCAO_DECLARACAO> ::= tipo id abre_parenteses <PARAMETROS> fecha_parenteses inicio_bloco <BLOCO> fim_bloco
+<CHAMADA_FUNCAO> ::= id abre_parenteses <ARGUMENTOS> fecha_parenteses ponto_virgula
+<RETORNO> ::= return <EXPRESSAO> ponto_virgula
+<PARAMETROS> ::= tipo id | tipo id virgula <PARAMETROS> | vazio
+<ARGUMENTOS> ::= id | id virgula <ARGUMENTOS> | vazio
